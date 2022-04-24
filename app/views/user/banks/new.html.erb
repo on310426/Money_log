@@ -1,0 +1,39 @@
+<%= render "layouts/header" %>
+<div class="container">
+    <div class="row">
+        <div class="col mx-auto">
+            <h2 class="text-center">Bank Account Registraion</h2><br></br>
+            
+            <%= form_with model: @bank, url: users_banks_path, method: :post do |f| %>
+            
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Bank Name</label>
+                  <div class="col-sm-10">
+                    <%= f.text_field :name, autofocus: true, placeholder: "bank name", class: "form-control" %>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Branch Name</label>
+                  <div class="col-sm-10">
+                    <%= f.text_field :branch, autofocus: true, placeholder: "branch name", class: "form-control" %>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Owner Name</label>
+                  <div class="col-sm-10">
+                    <%= f.text_field :owner, autofocus: true, placeholder: "owner name", class: "form-control" %>
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"></label>
+                  <div class="col">
+                    <%= f.submit "Regstrate Bank account", class: "btn btn-warning form-control" %>
+                  </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

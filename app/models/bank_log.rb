@@ -1,0 +1,2 @@
+class BankLog < ApplicationRecord
+end

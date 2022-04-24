@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_003127) do
+ActiveRecord::Schema.define(version: 2022_04_24_054328) do
+
+  create_table "bank_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+  end
+
+  create_table "bank_logs", force: :cascade do |t|
+    t.string "title"
+    t.integer "bank_category_id"
+    t.date "use_date"
+    t.string "detail"
+    t.integer "amount_money"
+    t.boolean "in_out"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "banks", force: :cascade do |t|
+    t.string "name"
+    t.string "branch"
+    t.string "owner"
+    t.integer "user_id"
+    t.integer "bank_log_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

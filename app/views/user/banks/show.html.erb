@@ -1,0 +1,29 @@
+<%= render "layouts/header" %>
+<div class="container">
+    <div class="row">
+        <div class="col mx-auto">
+            <h2 class="text-center">Bank Account Detail</h2><br></br>
+            
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Bank Name</th>
+                        <th><%= @bank.name %></th>
+                    </tr>
+                    <tr>
+                        <th>Branch Name</th>
+                        <th><%= @bank.branch %></th>
+                    </tr>
+                    <tr>
+                        <th>Owner</th>
+                        <th><%= @bank.owner %></th>
+                    </tr>
+                    <tr>
+                        <th>Blance</th>
+                        <th>¥100000</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

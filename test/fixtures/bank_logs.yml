@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  bank_category_id: 1
+  use_date: 2022-04-24
+  detail: MyString
+  amount_money: 1
+  in_out: false
+
+two:
+  title: MyString
+  bank_category_id: 1
+  use_date: 2022-04-24
+  detail: MyString
+  amount_money: 1
+  in_out: false

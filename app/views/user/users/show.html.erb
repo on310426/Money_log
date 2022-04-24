@@ -25,49 +25,59 @@
             
             <div class="row">
                 <div class="col-6">
-                    <h3 class="text-center">Bank Acconuts</h3>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <%= link_to "+", root_path, class: "btn btn-info" %>
-                    </div>
+                    <h3 class="text-center">Bank Accounts</h3>
                     </br>
                     <table class="table">
                         <thead>
                             <tr>
                                 <td>Bank Name</td>
                                 <td>Branch Name</td>
+                                <td colspan="2"></td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Mitsubishi UFJ</td>
-                                <td>Kitakyusyu</td>
-                            </tr>
+                            <% @banks.each do |bank| %>
+                                <tr>
+                                    <td>
+                                        <%= link_to users_bank_path(bank) do %>
+                                            <%= bank.name %>
+                                        <% end %>
+                                    </td>
+                                    <td><%= bank.branch %></td>
+                                    <th><%= link_to "Edit", edit_bank_path(bank), class: "btn btn-warning" %></th>
+                                    <th><%= link_to "Destroy", users_bank_path(bank), method: :delete, class: "btn btn-info", "data-confirm" => "Do you really want to delete this?" %></th>
+                                </tr>
+                            <% end %>
                         </tbody>
                     </table>
-                    <%= link_to "Edit Bank Account", root_path, class: "btn btn-warning btn-block" %>
+                    </br>
+                    <%= link_to "Add Bank Account", users_banks_new_path, class: "btn btn-info btn-block" %>
+                    <%= link_to "Add Bank Category", users_bank_categories_path, class: "btn btn-warning btn-block" %>
                 </div>
                 
                 <div class="col-6">
                     <h3 class="text-center">Credit Cards</h3>
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <%= link_to "+", root_path, class: "btn btn-info" %>
-                    </div>
                     </br>
                     <table class="table">
                         <thead>
                             <tr>
                                 <td>Card Name</td>
                                 <td>Brand Name</td>
+                                <td colspan="2"></td>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>Mitsubishi UFJ AMEX</td>
                                 <td>American Express</td>
+                                <th><%= link_to "Edit", root_path, class: "btn btn-warning" %></th>
+                                <th><%= link_to "Destroy", root_path, class: "btn btn-info" %></th>
                             </tr>
                         </tbody>
                     </table>
-                    <%= link_to "Edit Credit Card", root_path, class: "btn btn-warning btn-block" %>
+                    </br>
+                    <%= link_to "Add Card", root_path, class: "btn btn-info btn-block" %>
+                    <%= link_to "Add Card Category", root_path, class: "btn btn-warning btn-block" %>
                 </div>
             </div>
         </div>

@@ -3,6 +3,7 @@ class User::UsersController < ApplicationController
   end
 
   def show
+    @banks = Bank.where(user_id: current_user.id)
   end
 
   def edit
