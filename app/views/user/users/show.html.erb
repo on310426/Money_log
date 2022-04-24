@@ -1,0 +1,75 @@
+<%= render "layouts/header" %>
+<div class="container">
+    <div class="row">
+        <div class="col mx-auto">
+            <h1 class="text-center">My Page</h1></br>
+            
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Account Name</td>
+                        <td><%= current_user.account_name %></td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td><%= current_user.last_name%> <%= current_user.first_name%></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><%= current_user.email%></td>
+                    </tr>
+                </tbody>
+            </table>
+            <%= link_to "Edit Account", users_mypage_edit_path, class: "btn btn-warning btn-block" %>
+            <br></br>
+            
+            <div class="row">
+                <div class="col-6">
+                    <h3 class="text-center">Bank Acconuts</h3>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <%= link_to "+", root_path, class: "btn btn-info" %>
+                    </div>
+                    </br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Bank Name</td>
+                                <td>Branch Name</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mitsubishi UFJ</td>
+                                <td>Kitakyusyu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <%= link_to "Edit Bank Account", root_path, class: "btn btn-warning btn-block" %>
+                </div>
+                
+                <div class="col-6">
+                    <h3 class="text-center">Credit Cards</h3>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <%= link_to "+", root_path, class: "btn btn-info" %>
+                    </div>
+                    </br>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>Card Name</td>
+                                <td>Brand Name</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Mitsubishi UFJ AMEX</td>
+                                <td>American Express</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <%= link_to "Edit Credit Card", root_path, class: "btn btn-warning btn-block" %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

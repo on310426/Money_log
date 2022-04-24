@@ -9,9 +9,10 @@
                 また、収入に情報を管理することもできます。<br></br>
                 
             </p>
-            <div class="d-grid gap-2">
-                <%= link_to "Sign Up",root_path, class: "btn btn-success" %>
-                <%= link_to "Log In",root_path, class: "btn btn-secondary" %>
+            <div class="btn-wrapper col-10 mx-auto">
+                <%= link_to "Sign Up",new_user_registration_path, class: "btn btn-warning btn-block" %>
+                </br>
+                <%= link_to "Log In",new_user_session_path, class: "btn btn-info  btn-block" %>
             </div>
         </div>
     </div>

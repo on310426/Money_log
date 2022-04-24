@@ -1,0 +1,9 @@
+<% if obj.errors.any? %>
+  <div id="error_explanation">
+    <h3 class="text-center"><%= pluralize(obj.errors.count, "error") %> prohibited this obj from being saved:</h3>
+      <% obj.errors.full_messages.each do |message| %>
+        <p class="text-center"><%= message %></p>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
