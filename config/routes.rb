@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+  
   root to: "user/homes#top"
   get '/about' => "user/homes#about"
     
@@ -26,6 +26,14 @@ Rails.application.routes.draw do
     get 'users/banks/:id/edit'=>"user/banks#edit",as: "edit_bank"
     patch 'users/banks/:id'=>"user/banks#update"
     delete 'users/banks/:id'=>"user/banks#destroy"
+    
+    get 'users/bank_logs' => "user/bank_logs#index"
+    get 'users/bank_logs/new' => "user/bank_logs#new"
+    get 'users/bank_logs/:id' => "user/bank_logs#show"
+    post 'users/bank_logs' => "user/bank_logs#create"
+    get 'users/bank_logs/:id/edit' => "user/bank_logs#edit"
+    patch 'users/bank_logs/:id' => "user/bank_logs#update"
+    delete 'users/bank_logs/:id' => "user/bank_logs#destroy"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -3,7 +3,7 @@
         <br>
         <div class="row justify-content-between">
             <div class="col-4">
-                <h4><%= link_to "Money Log", root_path %></h4>
+                <h4><%= link_to "Money Log", root_path, class: "text-danger" %></h4>
             </div>
             <div class="col-6">
                  <div class="d-flex flex-row-reverse">
@@ -11,7 +11,26 @@
                     <ul class="nav">
                         <li class="nav-item nav-link"><%= link_to "Top", users_path %></li>
                         <li class="nav-item nav-link"><%= link_to "About", about_path %></li>
-                        
+                        <div class="dropdown">
+                          <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Bank Log
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div>
+                        </div>
+                        <div class="dropdown">
+                          <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Card Log
+                          </button>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div>
+                        </div>
                         <li class="nav-item nav-link"><%= link_to "My Page", users_mypage_path %></li>
                         <li class="nav-item nav-link"><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
                     </ul>
