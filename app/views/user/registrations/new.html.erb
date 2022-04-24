@@ -1,0 +1,65 @@
+<%= render "layouts/header" %>
+<div class="container">
+    <div class="row">
+        <div class="col mx-auto">
+          
+          <h2 class="text-center">Sign up</h2><br></br>
+          
+          <%= form_with model: @user, url: user_registration_path do |f| %>
+            <%= render "user/shared/error_messages", resource: resource %>
+          
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Name</label>
+              <div class="col-5">
+                <%= f.text_field :last_name, autofocus: true, placeholder: "Last Name", class: "form-control" %>
+              </div>
+              <div class="col-5">
+                <%= f.text_field :first_name, autofocus: true, placeholder: "First name", class: "form-control" %>
+              </div>
+            </div>
+            
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Account Name</label>
+              <div class="col-sm-10">
+                <%= f.text_field :account_name, autofocus: true, placeholder: "Account Name", class: "form-control" %>
+              </div>
+            </div>
+          
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Email</label>
+              <div class="col-sm-10">
+                <%= f.email_field :email, autofocus: true, placeholder: "sample@example.com", class: "form-control" %>
+              </div>
+            </div>
+            
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Password</label>
+              <div class="col-sm-10">
+                <%= f.password_field :password, placeholder: "6 characters or more", class: "form-control" %>
+              </div>
+            </div>
+            
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg text-center">Password(confirm)</label>
+              <div class="col-sm-10">
+                <%= f.password_field :password_confirmation, placeholder: "For confirm", class: "form-control" %>
+              </div>
+            </div>
+          
+            <div class="row">
+              <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg"></label>
+              <div class="col">
+                <%= f.submit "Creat Account", class: "btn btn-success form-control" %>
+              </div>
+            </div>
+          <% end %>
+          
+          <br></br>
+            <h2 class="text-center">Those who have already registered as a member</h2>
+            </br>
+            <p  class="text-center">Please log in from <%= link_to "here", new_user_session_path %>.</p>
+        </div>
+    </div>
+</div>
+
+
