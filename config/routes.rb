@@ -29,9 +29,9 @@ Rails.application.routes.draw do
     
     get 'users/bank_logs' => "user/bank_logs#index"
     get 'users/bank_logs/new' => "user/bank_logs#new"
-    get 'users/bank_logs/:id' => "user/bank_logs#show"
+    get 'users/bank_logs/:id' => "user/bank_logs#show",as: "bank_log"
     post 'users/bank_logs' => "user/bank_logs#create"
-    get 'users/bank_logs/:id/edit' => "user/bank_logs#edit"
+    get 'users/bank_logs/:id/edit' => "user/bank_logs#edit",as: "edit_bank_log"
     patch 'users/bank_logs/:id' => "user/bank_logs#update"
     delete 'users/bank_logs/:id' => "user/bank_logs#destroy"
 

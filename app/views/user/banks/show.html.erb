@@ -27,9 +27,9 @@
                     </tr>
                 </tbody>
             </table>
-            <%= link_to "Create Log", users_mypage_path, class: "btn btn-warning btn-block" %>
-            <%= link_to "Edit Account", users_mypage_path, class: "btn btn-info btn-block" %>
-            <%= link_to "Destroy Account", users_mypage_path, class: "btn btn-danger btn-block" %>
+            <%= link_to "Add Bank Log", users_bank_logs_new_path, class: "btn btn-warning btn-block" %>
+            <%= link_to "Edit Bank Account", edit_bank_path(@bank), class: "btn btn-info btn-block" %>
+            <%= link_to "Destroy BanAccount", users_bank_path(@bank), class: "btn btn-danger btn-block" %>
         </div>
         <div class="col-8">
             <h3 class="text-center">This Month Logs</h3>
@@ -46,22 +46,26 @@
                     </tr>
                 </thaed>
                 <tbody>
-                    <tr>
-                        <td>4/2</td>
-                        <td></td>
-                        <td>Eat</td>
-                        <td>Dinner</td>
-                        <td>Birthday party for friends</td>
-                        <td>¥7000-</td>
-                    </tr>
-                    <tr>
-                        <td>4/2</td>
-                        <td></td>
-                        <td>Eat</td>
-                        <td>Dinner</td>
-                        <td>Birthday party for friends</td>
-                        <td>¥7000-</td>
-                    </tr>
+                    <% @bank_logs.each do |l| %>
+                            <tr>
+                                <td><%= l.use_date %></td>
+                                <td>
+                                    <% if l.in_out == true %>
+                                        Out
+                                    <% else %>
+                                        In
+                                    <% end %>
+                                </td>
+                                <td><%= l.bank_category.name %></td>
+                                <td>
+                                    <%= link_to bank_log_path(l) do %>
+                                        <%= l.title %>
+                                    <% end %>
+                                </td>
+                                <td><%= l.detail %></td>
+                                <td><%= l.amount_money %></td>
+                            </tr>
+                    <% end %>
                 </tbody>
                 <tfoot>
                     <tr class="table-secondary">

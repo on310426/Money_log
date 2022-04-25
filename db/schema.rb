@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_24_054328) do
+ActiveRecord::Schema.define(version: 2022_04_25_102056) do
 
   create_table "bank_categories", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2022_04_24_054328) do
     t.boolean "in_out"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "bank_id"
   end
 
   create_table "banks", force: :cascade do |t|
@@ -35,6 +36,13 @@ ActiveRecord::Schema.define(version: 2022_04_24_054328) do
     t.string "branch"
     t.string "owner"
     t.integer "user_id"
+    t.integer "bank_log_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "middle_banks", force: :cascade do |t|
+    t.integer "bank_id"
     t.integer "bank_log_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

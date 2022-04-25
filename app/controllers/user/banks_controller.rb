@@ -6,6 +6,7 @@ class User::BanksController < ApplicationController
 
   def show
     @bank = Bank.find(params[:id])
+    @bank_logs = @bank.bank_logs 
   end
   
   def new

@@ -1,2 +1,64 @@
-<h1>User::BankLogs#show</h1>
-<p>Find me in app/views/user/bank_logs/show.html.erb</p>
+<%= render "layouts/header" %>
+<div class="container">
+    <h2 class="text-center">Bank Log Detail</h2><br></br>
+    <div class="row">
+        <div class="col-4">
+            <h3 class="text-center">Bank Info</h3>
+            </br>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th>Bank Name</th>
+                        <th><%= @bank_log.bank.name %></th>
+                    </tr>
+                    <tr>
+                        <th>Branch Name</th>
+                        <th><%= @bank_log.bank.branch %></th>
+                    </tr>
+                    <tr>
+                        <th>Owner</th>
+                        <th><%= @bank_log.bank.owner %></th>
+                    </tr>
+                    <tr>
+                        <th>Total Blance</th>
+                        <th>¥100000</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-8">
+            <h3 class="text-center">Detail</h3>
+            </br>
+            <table class="table">
+                <thaed>
+                    <tr>
+                        <td>Use Date</td>
+                        <td>In or Out</td>
+                        <td>Category</td>
+                        <td>Title</td>
+                        <td>Detail</td>
+                        <td>Amount of Money</td>
+                    </tr>
+                </thaed>
+                <tbody>
+                    <tr>
+                        <td><%= @bank_log.use_date %></td>
+                        <td>
+                            <% if @bank_log.in_out == true %>
+                                Out
+                            <% else %>
+                                In
+                            <% end %>
+                        </td>
+                        <td><%= @bank_log.bank_category.name %></td>
+                        <td><%= @bank_log.title %></td>
+                        <td><%= @bank_log.detail %></td>
+                        <td>¥<%= @bank_log.amount_money %></td>
+                    </tr>
+                </tbody>
+            </table>
+            <%= link_to "Edit Log", edit_bank_log_path(@bank_log), class: "btn btn-info btn-block" %>
+            <%= link_to "Destroy Log", bank_log_path(@bank_log), method: :delete, class: "btn btn-danger btn-block", "data-confirm" => "Do you really want to delete this?" %>
+        </div>
+    </div>
+</div>
