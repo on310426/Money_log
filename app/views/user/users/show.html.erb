@@ -20,7 +20,7 @@
                     </tr>
                 </tbody>
             </table>
-            <%= link_to "Edit Account", users_mypage_edit_path, class: "btn btn-warning btn-block" %>
+            <%= link_to "Edit Account", users_mypage_edit_path, class: "btn btn-info btn-block" %>
             <br></br>
             
             <div class="row">
@@ -44,16 +44,12 @@
                                         <% end %>
                                     </td>
                                     <td><%= bank.branch %></td>
-                                    <th><%= link_to "Edit", edit_bank_path(bank), class: "btn btn-warning" %></th>
-                                    <th><%= link_to "Destroy", users_bank_path(bank), method: :delete, class: "btn btn-info", "data-confirm" => "Do you really want to delete this?" %></th>
+                                    <th><%= link_to "Edit", edit_bank_path(bank), class: "btn btn-info" %></th>
+                                    <th><%= link_to "Destroy", users_bank_path(bank), method: :delete, class: "btn btn-danger", "data-confirm" => "Do you really want to delete this?" %></th>
                                 </tr>
                             <% end %>
                         </tbody>
                     </table>
-                    </br>
-                    <%= link_to "Add Bank Account", users_banks_new_path, class: "btn btn-info btn-block" %>
-                    <%= link_to "Add Bank Category", users_bank_categories_path, class: "btn btn-warning btn-block" %>
-                    <%= link_to "Add Bank Log", users_bank_logs_new_path, class: "btn btn-info btn-block" %>
                 </div>
                 
                 <div class="col-6">
@@ -71,15 +67,24 @@
                             <tr>
                                 <td>Mitsubishi UFJ AMEX</td>
                                 <td>American Express</td>
-                                <th><%= link_to "Edit", root_path, class: "btn btn-warning" %></th>
-                                <th><%= link_to "Destroy", root_path, class: "btn btn-info" %></th>
+                                <th><%= link_to "Edit", root_path, class: "btn btn-info" %></th>
+                                <th><%= link_to "Destroy", root_path, class: "btn btn-danger" %></th>
                             </tr>
                         </tbody>
                     </table>
-                    </br>
-                    <%= link_to "Add Card", root_path, class: "btn btn-info btn-block" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <%= link_to "Add Bank Account", users_banks_new_path, class: "btn btn-warning btn-block" %>
+                    <%= link_to "Add Bank Category", users_bank_categories_path, class: "btn btn-warning btn-block" %>
+                    <%= link_to "Add Bank Log", users_bank_logs_new_path, class: "btn btn-warning btn-block" %>
+                </div>
+                
+                <div class="col-6">
+                    <%= link_to "Add Card", root_path, class: "btn btn-warning btn-block" %>
                     <%= link_to "Add Card Category", root_path, class: "btn btn-warning btn-block" %>
-                    <%= link_to "Add Bank Log", root_path, class: "btn btn-info btn-block" %>
+                    <%= link_to "Add Bank Log", root_path, class: "btn btn-warning btn-block" %>
                 </div>
             </div>
         </div>

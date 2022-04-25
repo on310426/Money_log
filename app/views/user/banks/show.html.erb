@@ -2,30 +2,77 @@
 <div class="container">
     <div class="row">
         <div class="col mx-auto">
-            <h2 class="text-center">Bank Account Detail</h2><br></br>
-            <%= link_to "Back", users_mypage_path, class: "btn btn-info" %>
+            <h2 class="text-center">Bank Account Detail</h2>
+            <%= link_to "Back", users_mypage_path, class: "btn btn-secondary" %>
             <br></br>
             <table class="table">
-                <tbody>
+                <thead>
                     <tr>
                         <th>Bank Name</th>
-                        <th><%= @bank.name %></th>
-                    </tr>
-                    <tr>
                         <th>Branch Name</th>
-                        <th><%= @bank.branch %></th>
-                    </tr>
-                    <tr>
                         <th>Owner</th>
-                        <th><%= @bank.owner %></th>
+                        <th>Total Blance</th>
                     </tr>
+                </thead>
+                <tbody>
                     <tr>
-                        <th>Blance</th>
+                        <th><%= @bank.name %></th>
+                        <th><%= @bank.branch %></th>
+                        <th><%= @bank.owner %></th>
                         <th>¥100000</th>
                     </tr>
                 </tbody>
             </table>
-            <%= link_to "Create Log", users_mypage_path, class: "btn btn-warning btn-block" %>
+            <div class="row">
+                <div class="col-4">
+                    <%= link_to "Create Log", users_mypage_path, class: "btn btn-warning btn-block" %>
+                </div>
+                <div class="col-4">
+                    <%= link_to "Edit Account", users_mypage_path, class: "btn btn-info btn-block" %>
+                </div>
+                <div class="col-4">
+                    <%= link_to "Destroy Account", users_mypage_path, class: "btn btn-danger btn-block" %>
+                </div>
+            </div>
+            <br></br>
+            <h3 class="text-center">This Month Logs</h3>
+            </br>
+            <table class="table">
+                <thaed>
+                    <tr>
+                        <td>Use Date</td>
+                        <td>In or Out</td>
+                        <td>Category</td>
+                        <td>Title</td>
+                        <td>Detail</td>
+                        <td>Amount of Money</td>
+                    </tr>
+                </thaed>
+                <tbody>
+                    <tr>
+                        <td>4/2</td>
+                        <td></td>
+                        <td>Eat</td>
+                        <td>Dinner</td>
+                        <td>Birthday party for friends</td>
+                        <td>¥7000-</td>
+                    </tr>
+                    <tr>
+                        <td>4/2</td>
+                        <td></td>
+                        <td>Eat</td>
+                        <td>Dinner</td>
+                        <td>Birthday party for friends</td>
+                        <td>¥7000-</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="table-secondary">
+                        <td colspan="5">Total</td>
+                        <td>¥7000-</td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
     </div>
 </div>

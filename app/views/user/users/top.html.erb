@@ -2,7 +2,15 @@
 <div class="container">
     <div class="row">
         <div class="col mx-auto">
-            user/users#top
+            
+            <%= month_calendar do |date| %>
+            
+                <%= date.day %>
+                <p>In</p>
+                <p>Out</p>
+                
+            <% end %>
+            
         </div>
     </div>
 </div>
