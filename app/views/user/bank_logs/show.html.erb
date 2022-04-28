@@ -2,14 +2,16 @@
 <div class="container">
     <h2 class="text-center">Bank Log Detail</h2><br></br>
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <h3 class="text-center">Bank Info</h3>
             </br>
             <table class="table">
                 <tbody>
                     <tr>
                         <th>Bank Name</th>
-                        <th><%= @bank_log.bank.name %></th>
+                        <th>
+                            <%= @bank_log.bank.name %>
+                        </th>
                     </tr>
                     <tr>
                         <th>Branch Name</th>
@@ -26,34 +28,32 @@
                 </tbody>
             </table>
         </div>
-        <div class="col-8">
+        <div class="col-9">
             <h3 class="text-center">Detail</h3>
             </br>
             <table class="table">
                 <thaed>
                     <tr>
-                        <td>Use Date</td>
-                        <td>In or Out</td>
-                        <td>Category</td>
-                        <td>Title</td>
-                        <td>Detail</td>
-                        <td>Amount of Money</td>
+                        <td class="col-1">Date</td>
+                        <td class="col-2">Category</td>
+                        <td class="col-3">Title</td>
+                        <td class="col-4">Detail</td>
+                        <td class="col-2">Amount</td>
                     </tr>
                 </thaed>
                 <tbody>
                     <tr>
-                        <td><%= @bank_log.use_date %></td>
-                        <td>
-                            <% if @bank_log.in_out == true %>
-                                Out
-                            <% else %>
-                                In
-                            <% end %>
-                        </td>
+                        <td><%= @bank_log.use_date.strftime('%m/%d') %></td>
                         <td><%= @bank_log.bank_category.name %></td>
                         <td><%= @bank_log.title %></td>
                         <td><%= @bank_log.detail %></td>
-                        <td>¥<%= @bank_log.amount_money %></td>
+                        <td>
+                            <% if @bank_log.in_out == true %>
+                                <p class="text-danger">- ¥<%= @bank_log.amount_money %></p>
+                            <% else %>
+                                <p class="text-success">+ ¥<%= @bank_log.amount_money %></p>
+                            <% end %>
+                        </td>
                     </tr>
                 </tbody>
             </table>

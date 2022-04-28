@@ -6,7 +6,15 @@ class User::BanksController < ApplicationController
 
   def show
     @bank = Bank.find(params[:id])
-    @bank_logs = @bank.bank_logs 
+    @bank_logs = @bank.bank_logs.order(use_date: "ASC")
+    @bank_logs.each do |bank_log|
+    @total = 0
+      if bank_log.in_out == true
+        @total -= bank_log.amount_money
+      else
+        @total += bank_log.amount_money
+      end
+    end
   end
   
   def new

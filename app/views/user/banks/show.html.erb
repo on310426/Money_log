@@ -4,7 +4,7 @@
     <%= link_to "Back", users_mypage_path, class: "btn btn-secondary" %>
     <br></br>
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <h3 class="text-center">Bank Info</h3>
             </br>
             <table class="table">
@@ -29,56 +29,72 @@
             </table>
             <%= link_to "Add Bank Log", users_bank_logs_new_path, class: "btn btn-warning btn-block" %>
             <%= link_to "Edit Bank Account", edit_bank_path(@bank), class: "btn btn-info btn-block" %>
-            <%= link_to "Destroy BanAccount", users_bank_path(@bank), class: "btn btn-danger btn-block" %>
+            <%= link_to "Destroy Bank Account", users_bank_path(@bank), method: :delete, class: "btn btn-danger btn-block", "data-confirm" => "Do you really want to delete this?" %>
         </div>
-        <div class="col-8">
+        <div class="col-9">
             <h3 class="text-center">This Month Logs</h3>
             </br>
             <table class="table">
                 <thaed>
                     <tr>
-                        <td>Use Date</td>
-                        <td>In or Out</td>
-                        <td>Category</td>
-                        <td>Title</td>
-                        <td>Detail</td>
-                        <td>Amount of Money</td>
+                        <td class="col-1"><div class="text-center">Date</div></td>
+                        <td class="col-2"><div class="text-center">Category</div></td>
+                        <td class="col-3">Title</td>
+                        <td class="col-4">Detail</td>
+                        <td class="col-2"><div class="text-center">Amount</div></td>
                     </tr>
                 </thaed>
                 <tbody>
                     <% @bank_logs.each do |l| %>
                             <tr>
-                                <td><%= l.use_date %></td>
                                 <td>
-                                    <% if l.in_out == true %>
-                                        Out
-                                    <% else %>
-                                        In
-                                    <% end %>
+                                    <div class="text-center">
+                                        <%= l.use_date.strftime('%m/%d') %>
+                                    </div>
                                 </td>
-                                <td><%= l.bank_category.name %></td>
+                                <td>
+                                    <div class="text-center">
+                                        <%= l.bank_category.name %>
+                                    </div>
+                                </td>
                                 <td>
                                     <%= link_to bank_log_path(l) do %>
                                         <%= l.title %>
                                     <% end %>
                                 </td>
                                 <td><%= l.detail %></td>
-                                <td><%= l.amount_money %></td>
+                                <td>
+                                    <div class="text-center">  
+                                        <% if l.in_out == true %>
+                                            <p class="text-danger">- ¥<%= l.amount_money %></p>
+                                        <% else %>
+                                            <p class="text-success">+ ¥<%= l.amount_money %></p>
+                                        <% end %>
+                                    </div>
+                                </td>
                             </tr>
                     <% end %>
                 </tbody>
                 <tfoot>
                     <tr class="table-secondary">
-                        <td colspan="5"><div class="text-center">Balance at the end of last month</div></td>
-                        <td>¥7000-</td>
+                        <td colspan="4">月末残高</td>
+                        <td>
+                            <div class="text-center">  
+                                <% if @total < 0 %>
+                                    <div class="text-danger">¥<%= @total %></div>
+                                <% else %>
+                                    <div class="text-success">+¥<%= @total %></div>
+                                <% end %>
+                            </div>
+                        </td>
                     </tr>
                     <tr class="table-secondary">
-                        <td colspan="5"><div class="text-center">This month's balance</div></td>
-                        <td>¥7000-</td>
-                    </tr>
-                    <tr class="table-secondary">
-                        <td colspan="5"><div class="text-center">Total Blance</div></td>
-                        <td>¥7000-</td>
+                        <td colspan="4">収支</td>
+                        <td>
+                            <div class="text-center">  
+                                ¥7000
+                            </div>
+                        </td>
                     </tr>
                 </tfoot>
             </table>
