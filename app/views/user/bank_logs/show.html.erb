@@ -10,7 +10,9 @@
                     <tr>
                         <th>Bank Name</th>
                         <th>
-                            <%= @bank_log.bank.name %>
+                            <%= link_to users_bank_path(@bank_log.bank) do %>
+                                <%= @bank_log.bank.name %>
+                            <% end %>
                         </th>
                     </tr>
                     <tr>

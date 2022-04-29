@@ -1,14 +1,17 @@
 class User::BanksController < ApplicationController
   
   def index
-    @banks = Bank.all
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
+    @banks = Bank.where(user_id: current_user.id)
+    @bank_logs = BankLog.where(use_date: @month.all_month, user_id: current_user.id).order(use_date: "ASC")
   end
 
   def show
+    @month = params[:month] ? Date.parse(params[:month]) : Time.zone.today
     @bank = Bank.find(params[:id])
-    @bank_logs = @bank.bank_logs.order(use_date: "ASC")
+    @bank_logs = @bank.bank_logs.where(use_date: @month.all_month, user_id: current_user.id).order(use_date: "ASC")
     @bank_logs.each do |bank_log|
-    @total = 0
+      @total = 0
       if bank_log.in_out == true
         @total -= bank_log.amount_money
       else

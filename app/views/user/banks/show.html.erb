@@ -32,7 +32,25 @@
             <%= link_to "Destroy Bank Account", users_bank_path(@bank), method: :delete, class: "btn btn-danger btn-block", "data-confirm" => "Do you really want to delete this?" %>
         </div>
         <div class="col-9">
-            <h3 class="text-center">This Month Logs</h3>
+            <div class="row">
+                <div class="col-4">
+                    <div class="text-left">
+                        <%= link_to users_bank_path(month:@month.prev_month), class: "btn btn-secondary" do %>
+                            <%= @month.prev_month.strftime('%m') %>月
+                        <% end %>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <h3 class="text-center"><%= @month.strftime('%m') %> Logs</h3>
+                </div>
+                <div class="col-4">
+                    <div class="text-right">
+                    <%= link_to users_bank_path(month:@month.next_month), class: "btn btn-secondary" do %>
+                        <%= @month.next_month.strftime('%m') %>月
+                    <% end %>
+                </div>
+            </div>
+          </div>
             </br>
             <table class="table">
                 <thaed>
@@ -66,9 +84,9 @@
                                 <td>
                                     <div class="text-center">  
                                         <% if l.in_out == true %>
-                                            <p class="text-danger">- ¥<%= l.amount_money %></p>
+                                            <p class="text-danger">- ¥<%= l.amount_money.to_s(:delimited) %></p>
                                         <% else %>
-                                            <p class="text-success">+ ¥<%= l.amount_money %></p>
+                                            <p class="text-success">+ ¥<%= l.amount_money.to_s(:delimited) %></p>
                                         <% end %>
                                     </div>
                                 </td>
@@ -80,10 +98,14 @@
                         <td colspan="4">月末残高</td>
                         <td>
                             <div class="text-center">  
-                                <% if @total < 0 %>
-                                    <div class="text-danger">¥<%= @total %></div>
+                                <% if @total == nil %>
+                                    <div class="">¥0</div>
                                 <% else %>
-                                    <div class="text-success">+¥<%= @total %></div>
+                                    <% if @total < 0 %>
+                                        <div class="text-danger">¥<%= @total.to_s(:delimited) %></div>
+                                    <% else %>
+                                        <div class="text-success">+¥<%= @total.to_s(:delimited) %></div>
+                                    <% end %>
                                 <% end %>
                             </div>
                         </td>
@@ -91,9 +113,7 @@
                     <tr class="table-secondary">
                         <td colspan="4">収支</td>
                         <td>
-                            <div class="text-center">  
-                                ¥7000
-                            </div>
+                            <div class="text-center">¥7000</div>
                         </td>
                     </tr>
                 </tfoot>

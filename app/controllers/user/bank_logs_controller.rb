@@ -4,6 +4,7 @@ class User::BankLogsController < ApplicationController
   
   def create
     @bank_log = BankLog.new(bank_log_params)
+    @bank_log.user_id = current_user.id
     if @bank_log.save
       redirect_to bank_log_path(@bank_log)
     else

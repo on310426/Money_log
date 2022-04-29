@@ -35,7 +35,6 @@
                         <tr>
                             <th><%= c.name %></th>
                             <th><%= link_to "Edit", edit_users_bank_categories_path(c), class: "btn btn-warning" %></th>
-                            <th><%= link_to "Destroy", destroy_users_bank_categories_path(c), method: :delete, class: "btn btn-info", "data-confirm" => "Do you really want to delete this?" %></th>
                         </tr>
                     <% end %>
                 </tbody>

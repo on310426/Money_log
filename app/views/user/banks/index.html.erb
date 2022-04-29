@@ -2,83 +2,39 @@
 <div class="container">
     <h2 class="text-center">This Month Bank Log</h2><br></br>
     <div class="row">
-        <div class="col-4">
-            <h4 class="text-center">MUFG Bank</h4>
-            </br>
-            <table class="table">
-                <thaed>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-3">Title</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </thaed>
-                <tbody>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-2">Category</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="table-secondary">
-                        <td colspan="2">月末残高</td>
-                        <td>¥7000-</td>
-                    </tr>
-                </tfoot>
-            </table>
+        <div class="col-6">
+            <% @banks.each do |bank| %>
+                <h4 class="text-center"><%= bank.name %></h4>
+                </br>
+                <table class="table">
+                    <thaed>
+                        <tr>
+                            <td class="col-1">Date</td>
+                            <td class="col-3">Title</td>
+                            <td class="col-2">Amount</td>
+                        </tr>
+                    </thaed>
+                    <% @bank_logs.each do |l| %>
+                        <tbody>
+                            <tr>
+                                <td class="col-1"><%= l.use_date.strftime('%m/%d') %></td>
+                                <td class="col-2"><%= l.title %></td>
+                                <td class="col-2"><%= l.amount_money %></td>
+                            </tr>
+                        </tbody>
+                    <% end %>
+                    <tfoot>
+                        <tr class="table-secondary">
+                            <td colspan="2">月末残高</td>
+                            <td>¥7000-</td>
+                        </tr>
+                    </tfoot>
+                </table>
+                </br>
+            <% end %>
         </div>
-        <div class="col-4">
-            <h4 class="text-center">MUFG Bank</h4>
-            </br>
-            <table class="table">
-                <thaed>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-3">Title</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </thaed>
-                <tbody>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-2">Category</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="table-secondary">
-                        <td colspan="2">月末残高</td>
-                        <td>¥7000-</td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        <div class="col-4">
-            <h4 class="text-center">MUFG Bank</h4>
-            </br>
-            <table class="table">
-                <thaed>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-3">Title</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </thaed>
-                <tbody>
-                    <tr>
-                        <td class="col-1">Date</td>
-                        <td class="col-2">Category</td>
-                        <td class="col-2">Amount</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr class="table-secondary">
-                        <td colspan="2">月末残高</td>
-                        <td>¥7000-</td>
-                    </tr>
-                </tfoot>
-            </table>
+        <div class="col-6">
+           
         </div>
     </div>
 </div>
